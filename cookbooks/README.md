@@ -1,3 +1,5 @@
+# Using cookbooks
+
 This directory contains the cookbooks used to configure systems in your infrastructure with Chef.
 
 Knife needs to be configured to know where the cookbooks are located with the `cookbook_path` setting. If this is not set, then several cookbook operations will fail to work properly.
@@ -19,6 +21,8 @@ Configure knife to use your preferred copyright holder, email contact and licens
 
 Supported values for `cookbook_license` are "apachev2", "mit","gplv2","gplv3",  or "none". These settings are used to prefill comments in the default recipe, and the corresponding values in the metadata.rb. You are free to change the the comments in those files.
 
+# Creating new Cookbooks
+
 Create new cookbooks in this directory with Knife.
 
     knife cookbook create COOKBOOK
@@ -28,6 +32,8 @@ This will create all the cookbook directory components. You don't need to use th
 You can also download cookbooks directly from the Opscode Cookbook Site. There are two subcommands to help with this depending on what your preference is.
 
 The first and recommended method is to use a vendor branch if you're using Git. This is automatically handled with Knife.
+
+# Installing Cookbooks to chef server
 
     knife cookbook site install COOKBOOK
 
@@ -52,3 +58,51 @@ If you're not using Git, use the site download subcommand to download the tarbal
     knife cookbook site download COOKBOOK
 
 This creates the COOKBOOK.tar.gz from in the current directory (e.g., `~/chef-repo`). We recommend following a workflow similar to the above for your version control tool.
+
+# Site-specific Cookbooks and roles
+
+- common_recipes
+
+  This cookbook installs and configures applications and services common to all machines. It is used by the role **common_role**
+
+- phpapp
+
+  This cookbook and role are used to create a vanilla Wordpress site on the local machine.
+
+- starter
+
+  This cookbook is used by the **starter** role as an example
+
+# List of Supermarket cookbooks 
+
+This repo makes use of many community-written cookbooks and recipes.  Here's a list
+
+- apache2
+- aws
+- chef-sugar
+- homebrew 
+- iis 
+- iptables
+- logrotate
+- mariadb (includes apt, build-essential, seven-zip, windows, mingw, selinux_policy, yum, yum-epel, yum-scl, inifile_chef_gem)
+- mysql (includes mysql2_chef_gem, build-essential, seven-zip, windows, mingw, mariadb)
+- pacman 
+- php (includes build-essential, seven-zip, windows, mingw, seven-zip, yum-epel)
+- postgresql (includes build-essential, seven-zip, windows, openssl)
+
+Update these cookbooks with the following command:
+
+```bash
+knife cookbook site install apache2
+knife cookbook site install aws
+knife cookbook site install chef-sugar
+knife cookbook site install homebrew 
+knife cookbook site install iis
+knife cookbook site install iptables
+knife cookbook site install logrotate
+knife cookbook site install mariadb
+knife cookbook site install mysql
+knife cookbook site install pacman 
+knife cookbook site install php
+knife cookbook site install postgresql
+```
