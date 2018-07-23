@@ -9,4 +9,3 @@ version          '0.1.0'
 depends "apache2"
 depends "mysql"
 depends "php"
-depends "mysql2_chef_gem"
