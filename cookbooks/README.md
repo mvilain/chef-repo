@@ -86,6 +86,7 @@ This repo makes use of many community-written cookbooks and recipes.  Here's a l
 - logrotate
 - mariadb (includes apt, build-essential, seven-zip, windows, mingw, selinux_policy, yum, yum-epel, yum-scl, inifile_chef_gem)
 - mysql (includes mysql2_chef_gem, build-essential, seven-zip, windows, mingw, mariadb)
+- ntp
 - pacman 
 - php (includes build-essential, seven-zip, windows, mingw, seven-zip, yum-epel)
 - postgresql (includes build-essential, seven-zip, windows, openssl)
@@ -102,6 +103,7 @@ knife cookbook site install iptables
 knife cookbook site install logrotate
 knife cookbook site install mariadb
 knife cookbook site install mysql
+knife cookbook site install ntp
 knife cookbook site install pacman 
 knife cookbook site install php
 knife cookbook site install postgresql
