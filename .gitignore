@@ -8,3 +8,4 @@
 .chef/syntaxcache/*
 
 *.tar.gz
+nodes/*
