@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 		# 	if [ -e ${i} ]; then echo "...displaying ${i}..."; cat ${i}; fi
 		# done
 
-		# echo "...`date` installing chef..."
+		echo "...`date` installing chef..."
 		# curl -L https://omnitruck.chef.io/install.sh >chef-install.sh 2>&1
 		# bash ./chef-install.sh -v 13.8.5 >chef-install.log 2>&1
 		# cat chef-install.log
@@ -49,10 +49,9 @@ Vagrant.configure("2") do |config|
 		ws_c6.vm.hostname = 'ws-c6'
 		
 		ws_c6.vm.provision "shell", inline: %q|
-			# echo "...`date` yum update (this may take a few moments)..."
 			# yum update -y >yum-update.log 2>&1
 			echo "...`date` installing chefdk..."
-			# yum install -y https://packages.chef.io/files/stable/chefdk/2.5.3/el/6/chefdk-2.5.3-1.el6.x86_64.rpm
+			# yum install -y http://packages.chef.io/files/stable/chefdk/2.5.3/el/6/chefdk-2.5.3-1.el6.x86_64.rpm
 			yum install -y https://packages.chef.io/files/stable/chefdk/3.3.23/el/6/chefdk-3.3.23-1.el6.x86_64.rpm
 |
 		ws_c6.vm.provision "chef_zero" do |chef|
@@ -74,7 +73,6 @@ Vagrant.configure("2") do |config|
 		ws_c7.vm.hostname = 'ws-c7'
 
 		ws_c7.vm.provision "shell", inline: <<-SHELL
-			# echo "...yum update (this may take a few moments)..."
 			# yum update -y >yum-update.log 2>&1
 			echo "...`date` installing chefdk..."
 			# yum install -y https://packages.chef.io/files/stable/chefdk/2.5.3/el/7/chefdk-2.5.3-1.el7.x86_64.rpm
@@ -104,9 +102,9 @@ Vagrant.configure("2") do |config|
 		ws_u14.vm.provision "shell", inline: <<-SHELL
 			apt-get update -y
 			echo "...`date` downloading and chefdk..."
-			# wget https://packages.chef.io/files/stable/chefdk/2.5.3/ubuntu/14.04/chefdk_2.5.3-1_amd64.deb
+			# wget --quiet https://packages.chef.io/files/stable/chefdk/2.5.3/ubuntu/14.04/chefdk_2.5.3-1_amd64.deb
 			# dpkg -i chefdk_2.5.3-1_amd64.deb
-			wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/14.04/chefdk_3.3.23-1_amd64.deb
+			wget --quiet https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/14.04/chefdk_3.3.23-1_amd64.deb
 			dpkg -i ./chefdk_3.3.23-1_amd64.deb
 		SHELL
 		ws_u14.vm.provision "chef_zero" do |chef|
@@ -130,9 +128,9 @@ Vagrant.configure("2") do |config|
 		ws_u16.vm.provision "shell", inline: <<-SHELL
 			apt-get update -y
 			echo "...`date` downloading and chefdk..."
-			# wget https://packages.chef.io/files/stable/chefdk/2.5.3/ubuntu/16.04/chefdk_2.5.3-1_amd64.deb
+			# wget --quiet https://packages.chef.io/files/stable/chefdk/2.5.3/ubuntu/16.04/chefdk_2.5.3-1_amd64.deb
 			# dpkg -i chefdk_2.5.3-1_amd64.deb
-			wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/16.04/chefdk_3.3.23-1_amd64.deb
+			wget --quiet https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/16.04/chefdk_3.3.23-1_amd64.deb
 			dpkg -i ./chefdk_3.3.23-1_amd64.deb
 		SHELL
 		ws_u16.vm.provision "chef_zero" do |chef|
@@ -156,7 +154,7 @@ Vagrant.configure("2") do |config|
 		ws_u18.vm.provision "shell", inline: <<-SHELL
 			apt-get update -y
 			echo "...`date` downloading and chefdk..."
-			wget https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/18.04/chefdk_3.3.23-1_amd64.deb
+			wget --quiet https://packages.chef.io/files/stable/chefdk/3.3.23/ubuntu/18.04/chefdk_3.3.23-1_amd64.deb
 			dpkg -i ./chefdk_3.3.23-1_amd64.deb
 		SHELL
 		ws_u18.vm.provision "chef_zero" do |chef|
