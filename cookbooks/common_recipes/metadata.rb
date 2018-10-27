@@ -1,4 +1,4 @@
-name             'common_recipies'
+name             'common_recipes'
 maintainer       'none'
 maintainer_email 'none'
 license          'All rights reserved'

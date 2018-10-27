@@ -1,5 +1,6 @@
 .rake_test_cache
-
+.vagrant
+nodes
 ###
 # Ignore Chef key files and secrets
 ###
