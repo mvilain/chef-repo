@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
 ##-------------------------------------------------------------------------------
 
 	config.vm.define "ws_c6" do |ws_c6|
-		ws_c6.vm.box = "geerlingguy/centos6"
+		ws_c6.vm.box = "centos/6"
 		ws_c6.vm.network 'private_network', ip: '192.168.10.106'
 		ws_c6.vm.hostname = 'ws-c6'
 		
@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "ws_c7" do |ws_c7|
-		ws_c7.vm.box = "geerlingguy/centos7"
+		ws_c7.vm.box = "centos/7"
 		ws_c7.vm.network 'private_network', ip: '192.168.10.107'
 		ws_c7.vm.hostname = 'ws-c7'
 
@@ -174,7 +174,7 @@ Vagrant.configure("2") do |config|
 # configure chef nodes
 ##-------------------------------------------------------------------------------
 	config.vm.define "node_c6" do |node_c6|
-		node_c6.vm.box = "geerlingguy/centos6"
+		node_c6.vm.box = "centos/6"
 		node_c6.vm.network 'private_network', ip: '192.168.10.206'
 		node_c6.vm.hostname = 'node-c6'
 		
@@ -200,7 +200,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "node_c7" do |node_c7|
-		node_c7.vm.box = "geerlingguy/centos7"
+		node_c7.vm.box = "centos/7"
 		node_c7.vm.network 'private_network', ip: '192.168.10.207'
 		node_c7.vm.hostname = 'node-c7'
 
