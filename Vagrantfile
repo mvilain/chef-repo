@@ -93,7 +93,7 @@ Vagrant.configure("2") do |config|
 
 # note: dpkg writes it's crap to stderr, so the 1>&2 is reversed
 	config.vm.define "ws_u14" do |ws_u14|
-		ws_u14.vm.box = "geerlingguy/ubuntu1404"
+		ws_u14.vm.box = "ubuntu/trusty64"
 		ws_u14.vm.network 'private_network', ip: '192.168.10.114'
 		ws_u14.vm.hostname = 'ws-u14'
 
@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "ws_u16" do |ws_u16|
-		ws_u16.vm.box = "geerlingguy/ubuntu1604"
+		ws_u16.vm.box = "ubuntu/xenial64"
 		ws_u16.vm.network 'private_network', ip: '192.168.10.116'
 		ws_u16.vm.hostname = 'ws-u16'
 
@@ -147,7 +147,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "ws_u18" do |ws_u18|
-		ws_u18.vm.box = "geerlingguy/ubuntu1604"
+		ws_u18.vm.box = "ubuntu/xenial64"
 		ws_u18.vm.network 'private_network', ip: '192.168.10.118'
 		ws_u18.vm.hostname = 'ws-u16'
 
@@ -226,7 +226,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "node_u14" do |node_u14|
-		node_u14.vm.box = "geerlingguy/ubuntu1404"
+		node_u14.vm.box = "ubuntu/trusty64"
 		node_u14.vm.network 'private_network', ip: '192.168.10.214'
 		node_u14.vm.hostname = 'node-u14'
 
@@ -252,7 +252,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "node_u16" do |node_u16|
-		node_u16.vm.box = "geerlingguy/ubuntu1604"
+		node_u16.vm.box = "ubuntu/xenial64"
 		node_u16.vm.network 'private_network', ip: '192.168.10.216'
 		node_u16.vm.hostname = 'node-u16'
 
@@ -278,7 +278,7 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.vm.define "node_u18" do |node_u18|
-		node_u18.vm.box = "geerlingguy/ubuntu1804"
+		node_u18.vm.box = "ubuntu/bionic64"
 		node_u18.vm.network 'private_network', ip: '192.168.10.218'
 		node_u18.vm.hostname = 'node-u18'
 
