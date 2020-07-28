@@ -12,13 +12,13 @@ Vagrant.configure("2") do |config|
 		#vb.gui = true
 		vb.memory = '1024'
 	end
-	# insert the following for working behind a proxy server
-	# https won't work well, but http is fine
-	if Vagrant.has_plugin?("vagrant-proxyconf")
-		config.proxy.http     = "http://www-proxy.us.oracle.com:80"
-		config.proxy.https    = "https://www-proxy.us.oracle.com:80"
-		config.proxy.no_proxy = "localhost,127.0.0.1,.local"
-	end
+# 	insert the following for working behind a proxy server
+# 	https won't work well, but http is fine
+# 	if Vagrant.has_plugin?("vagrant-proxyconf")
+# 		config.proxy.http     = "http://www-proxy.us.oracle.com:80"
+# 		config.proxy.https    = "https://www-proxy.us.oracle.com:80"
+# 		config.proxy.no_proxy = "localhost,127.0.0.1,.local"
+# 	end
 
 	#
 	# PROVISION ON ALL MACHINES 
@@ -53,11 +53,11 @@ SHELLALL
 ##-------------------------------------------------------------------------------
 
 	config.vm.define "ws_c6" do |ws_c6|
-		ws_c6.vm.box = "geerlingguy/centos6"
+		ws_c6.vm.box = "centos/6"
 		ws_c6.vm.network 'private_network', ip: '192.168.10.106'
 		ws_c6.vm.hostname = 'ws-c6'
 		ws_c6.vm.provision "shell", inline: %q|
-			# yum update -y >yum-update.log 2>&1
+			yum install -y python libselinux-python
 			echo "installing chefdk"
 |
 		ws_c6.vm.provision "chef_zero" do |chef|
@@ -76,11 +76,11 @@ SHELLALL
 	end
 
 	config.vm.define "ws_c7" do |ws_c7|
-		ws_c7.vm.box = "geerlingguy/centos7"
+		ws_c7.vm.box = "centos/7"
 		ws_c7.vm.network 'private_network', ip: '192.168.10.107'
 		ws_c7.vm.hostname = 'ws-c7'
 		ws_c7.vm.provision "shell", inline: %q|
-			# yum update -y >yum-update.log 2>&1
+			yum install -y python libselinux-python
 			echo "...installing chefdk"
 |
 		ws_c7.vm.provision "chef_zero" do |chef|
@@ -156,11 +156,11 @@ SHELLALL
 ##-------------------------------------------------------------------------------
 
 	config.vm.define "node_c6" do |node_c6|
-		node_c6.vm.box = "geerlingguy/centos6"
+		node_c6.vm.box = "centos/6"
 		node_c6.vm.network 'private_network', ip: '192.168.10.206'
 		node_c6.vm.hostname = 'node-c6'
 		node_c6.vm.provision "shell", inline: %q|
-			# yum update -y
+			yum install -y python libselinux-python
 |
 		node_c6.vm.provision "chef_zero" do |chef|
 			chef.node_name = 'node-c6'
@@ -178,11 +178,11 @@ SHELLALL
 	end
 
 	config.vm.define "node_c7" do |node_c7|
-		node_c7.vm.box = "geerlingguy/centos7"
+		node_c7.vm.box = "centos/7"
 		node_c7.vm.network 'private_network', ip: '192.168.10.207'
 		node_c7.vm.hostname = 'node-c7'
 		node_c7.vm.provision "shell", inline: %q|
-			# yum update -y
+			yum install -y python libselinux-python
 |
 		node_c7.vm.provision "chef_zero" do |chef|
 			chef.node_name = 'node-c7'
