@@ -53,7 +53,7 @@ SHELLALL
 ##-------------------------------------------------------------------------------
 
 	config.vm.define "ws_c6" do |ws_c6|
-		ws_c6.vm.box = "centos/6"
+		ws_c6.vm.box = "bento/centos-6"
 		ws_c6.vm.network 'private_network', ip: '192.168.10.106'
 		ws_c6.vm.hostname = 'ws-c6'
 		ws_c6.vm.provision "shell", inline: %q|
@@ -156,7 +156,7 @@ SHELLALL
 ##-------------------------------------------------------------------------------
 
 	config.vm.define "node_c6" do |node_c6|
-		node_c6.vm.box = "centos/6"
+		node_c6.vm.box = "bento/centos-6"
 		node_c6.vm.network 'private_network', ip: '192.168.10.206'
 		node_c6.vm.hostname = 'node-c6'
 		node_c6.vm.provision "shell", inline: %q|
